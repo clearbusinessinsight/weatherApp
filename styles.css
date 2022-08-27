@@ -1,57 +1,101 @@
 
-
-#main {
-  flex: content;
-  display: flexbox;
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: DodgerBlue;
 }
-/* Main Header */
-h1 {
-  width: 100vw;
-  font-size: 5vh;
-  padding: 1vh;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: aliceblue;
+
+#header-container {
   background-color: blue;
+  width: 98%;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 7vh;
+  color: #f1f1f1;
+}
+#city-container {
+  background-color: #f1f1f1;
+  width: 19%;
+  height: 100%;
+  margin: 10px;
 }
 
-/*This is the Search Container */
-.citycontainer {
-  width: 20%;
-  background-color: aliceblue;
+#weather-container {
+  background-color: #f1f1f1;
+  width: 78%;
+}
+
+#current-container {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+
+#location {
+  font-size: 50px;
+  padding-left: 5vh;
+}
+
+
+
+
+
+  #forecast-container {
+  background-color: #f1f1f1;
+  width: 78%;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+  }
+
+  h2 {
+      font-size: 3.5vh;
+      background-color: aqua;
+      padding-left: 1vh;
+       margin-top: 10px;
+    }
+   
+#csearch {
+  padding: 4px;
   font-size: 20px;
-}
-
-h2 {
-  
-  padding: 1vh;
   width: 90%;
-  background-color: aqua;
+  background-color: lightskyblue;
  }
 
-#csearch {
+.now {
+  font-size: 20px;
+  padding-left: 5vh;
+  padding-bottom: 2vh;
+}
+.desc {
+  font-size: 20px;
+  padding-left: 5vh;
+  padding-bottom: 2vh;
+}
+
+label {
+  font-size: 20px;
+  padding-left: 5vh;
   
-  padding: 1vh;
-  width: 90%;
-  background-color: aqua;
-  margin-top: 10px;
+}
+
+.temp {
+
 }
 
 #citysearch {
-    font-size: 25px;
-  font: bolder;
+  padding: 4px;
+  font-size: 20px;
   width: 90%;
-  text-align: center;
-  background-color: dodgerblue;
+  background-color: lightskyblue;
   margin-top: 10px;
 }
 
 hr {
   height: 2px;
   width: 90%;
-  margin-top: 10px;
-  margin-left: 0;
+  margin-top: 20px;
   background-color: black;
 }
 
@@ -62,24 +106,6 @@ button[type=button] {
   background-color: darkgrey;
   margin-top: 10px;
   }
-
-  /* Display current conditions */
-#currentconditions {
-  height: 50%;
-  width: 70%;
-  display: flex;
-  position: relative;
-  float: right;
-  padding-left: 20px;
-  flex-direction: column;
-  background-color: brown;
-  margin-top: 5px;
-}
-
-
-
-
-
 
 
 
@@ -123,11 +149,6 @@ button[type=button] {
   font-size: 1.5rem;
 }
 
-#location {
-  font-size: 3rem;
-  font-weight: 800;
-  font-style: italic;
-}
 .desc {
   font-size: 1.25rem;
   text-transform: capitalize;

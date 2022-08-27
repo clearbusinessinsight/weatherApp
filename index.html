@@ -13,11 +13,12 @@
 
 
 <body>
-    <div id="main">
-    <h1>Weather Dashboard</h1>
-    <div class="citycontainer">
+   
+<div class="flex-container">
+    <div id="header-container">Weather Dashboard</div>
+    <div id="city-container">
         <h2>Search for a City:</h2>
-        <input type="text" id="csearch" placeholder="Enter A City Name Here...">
+        <input type="text" id="csearch" placeholder="Enter A City Name Here..."></input>
         <button type="submit" id="citysearch">Search</button>
         <hr>
         <button type="button">Austin</button>
@@ -29,24 +30,34 @@
         <button type="button">Denver</button>
         <button type="button">Atlanta</button>
     </div>
-    
 
-    <div id="currentconditions">
-            <h2>Current Date</h2>
-            <form>
-              <p><label>Temp: <input></label></p>
+    <div id="weather-container">
+        <div id="current-container">
+            <div id="location">Unable to Fetch Weather</div>
+            <div class="now"><span id='date-time'></span></div>         
+            <div class="desc">No Information Available.</div>
+            <label>The current Temperature is:   <span class="c">Error</span><span>  or </span><span class="f">Error</span></label>
+                
+                   
               <p><label>Wind: <input type=tel></label></p>
               <p><label>Humidity: <input type=email></label></p>
               <p><label>UV Index: <input type=email></label></p>
-            </form>
-          </div>
-    </div>   
+    
+        </div>
+        <div id="location">Unable to Fetch Weather</div>
+        <div class="desc">No Information Available.</div>
+        <div class="weather">
+            <div class="c">Error</div>
+            <div class="circle"></div>
+            <div class="f">Error</div>
+        </div>
 
+        <div id="forecast-container">5 Day Forecast</div>
+    </div>
+   
 
+ 
 
-
-
-    <!--
     <div class="container">
         <img src="" alt="" srcset="" id="weather-icon">
         <div id="location">Unable to Fetch Weather</div>
@@ -74,7 +85,7 @@
                 <h4>Sunrise: <span class="sunrise">No Information Available</span></h4>
                 <h4>Sunset: <span class="sunset">No Information Available</span></h4>
             </div>
-        -->
+    
 
     </div>
     <script src="scripts.js"></script>
