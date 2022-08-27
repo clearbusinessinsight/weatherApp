@@ -1,12 +1,14 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
+
+#main {
+  flex: content;
+  display: flexbox;
+}
+/* Main Header */
 h1 {
   width: 100vw;
-  font-size: 50px;
+  font-size: 5vh;
+  padding: 1vh;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -14,53 +16,72 @@ h1 {
   background-color: blue;
 }
 
-h2 {
-  font-size: 30px;
-  padding: 1vh;
+/*This is the Search Container */
+.citycontainer {
+  width: 20%;
+  background-color: aliceblue;
+  font-size: 20px;
 }
 
-input[type=text] {
-  padding: 10px;
-  font-size: 20px;
+h2 {
+  
+  padding: 1vh;
   width: 90%;
+  background-color: aqua;
+ }
+
+#csearch {
+  
+  padding: 1vh;
+  width: 90%;
+  background-color: aqua;
+  margin-top: 10px;
 }
 
 #citysearch {
-  padding-left: 10px;
-  font-size: 20px;
+    font-size: 25px;
+  font: bolder;
   width: 90%;
+  text-align: center;
   background-color: dodgerblue;
   margin-top: 10px;
-  border-radius: 0vw;
 }
 
-#add-a-city {
-  padding-left: 10px;
+hr {
+  height: 2px;
+  width: 90%;
+  margin-top: 10px;
+  margin-left: 0;
+  background-color: black;
+}
+
+button[type=button] {
+  padding: 4px;
   font-size: 20px;
   width: 90%;
   background-color: darkgrey;
   margin-top: 10px;
-  border-radius: 0vw;
-}
+  }
 
-
-
-
-
-
-
-body {
-  font-family: 'Lora', serif;
-}
-
-.citycontainer {
-  height: 100vh;
-  width: 20vw;
+  /* Display current conditions */
+#currentconditions {
+  height: 50%;
+  width: 70%;
   display: flex;
+  position: relative;
+  float: right;
   padding-left: 20px;
   flex-direction: column;
-  background-color: aliceblue;
+  background-color: brown;
+  margin-top: 5px;
 }
+
+
+
+
+
+
+
 
 .container {
   height: 100vh;

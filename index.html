@@ -11,17 +11,42 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
 </head>
 
+
 <body>
+    <div id="main">
     <h1>Weather Dashboard</h1>
     <div class="citycontainer">
         <h2>Search for a City:</h2>
-        <input type="text" name="search" placeholder="Enter A City Name Here...">
+        <input type="text" id="csearch" placeholder="Enter A City Name Here...">
         <button type="submit" id="citysearch">Search</button>
-        <button type="menu" id="add-a-city">Add City</button>
-        
-
+        <hr>
+        <button type="button">Austin</button>
+        <button type="button">Chicago</button>
+        <button type="button">New York</button>
+        <button type="button">Orlando</button>
+        <button type="button">San Francisco</button>
+        <button type="button">Seatle</button>
+        <button type="button">Denver</button>
+        <button type="button">Atlanta</button>
     </div>
     
+
+    <div id="currentconditions">
+            <h2>Current Date</h2>
+            <form>
+              <p><label>Temp: <input></label></p>
+              <p><label>Wind: <input type=tel></label></p>
+              <p><label>Humidity: <input type=email></label></p>
+              <p><label>UV Index: <input type=email></label></p>
+            </form>
+          </div>
+    </div>   
+
+
+
+
+
+    <!--
     <div class="container">
         <img src="" alt="" srcset="" id="weather-icon">
         <div id="location">Unable to Fetch Weather</div>
@@ -49,6 +74,7 @@
                 <h4>Sunrise: <span class="sunrise">No Information Available</span></h4>
                 <h4>Sunset: <span class="sunset">No Information Available</span></h4>
             </div>
+        -->
 
     </div>
     <script src="scripts.js"></script>
