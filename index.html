@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,25 +9,23 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
 </head>
-
-
 <body>
-   
-<div class="flex-container">
+  <div class="flex-container">
     <div id="header-container">Weather Dashboard</div>
     <div id="city-container">
         <h2>Search for a City:</h2>
         <input type="text" id="csearch" placeholder="Enter A City Name Here..."></input>
         <button type="submit" id="citysearch">Search</button>
         <hr>
-        <button type="button">Austin</button>
-        <button type="button">Chicago</button>
-        <button type="button">New York</button>
-        <button type="button">Orlando</button>
-        <button type="button">San Francisco</button>
-        <button type="button">Seatle</button>
-        <button type="button">Denver</button>
-        <button type="button">Atlanta</button>
+        <button type="button" class="btn1" onclick="newcity(-97.7431, 30.2672)">Austin</button>
+        <button type="button" class="btn2" onclick="newcity(-87.65, 41.85)">Chicago</button>
+        <button type="button" class="btn3" onclick="newcity(-74.006, 40.7143)">New York</button>
+        <button type="button" class="btn4" onclick="newcity(-81.3792, 28.5383)">Orlando</button>
+        <button type="button" class="btn5" onclick="newcity(-122.4194, 37.7749)">San Francisco</button>
+        <button type="button" class="btn6" onclick="newcity(-84.4569, 39.162)">Cincinnati</button>
+        <button type="button" class="btn7" onclick="newcity(-104.9847, 39.7392)">Denver</button>
+        <button type="button" class="btn8" onclick="newcity(-84.388, 33.749)">Atlanta</button>
+        <button type="button" class="btn8" onclick="newcity(-122.443, 47.2529)">Tacoma</button>
     </div>
 
     <div id="weather-container">
@@ -36,58 +33,23 @@
             <div id="location">Unable to Fetch Weather</div>
             <div class="now"><span id='date-time'></span></div>         
             <div class="desc">No Information Available.</div>
-            <label>The current Temperature is:   <span class="c">Error</span><span>  or </span><span class="f">Error</span></label>
-                
-                   
-              <p><label>Wind: <input type=tel></label></p>
-              <p><label>Humidity: <input type=email></label></p>
-              <p><label>UV Index: <input type=email></label></p>
-    
-        </div>
-        <div id="location">Unable to Fetch Weather</div>
-        <div class="desc">No Information Available.</div>
-        <div class="weather">
-            <div class="c">Error</div>
-            <div class="circle"></div>
-            <div class="f">Error</div>
-        </div>
-
+            <div class="temp">The current Temperature is: <span class="c">Error</span><span>  or </span><span class="f">Error</span></div>
+            <div class="wspeed">The Wind Speed is: <span id="newws"></span></div>
+            <div class="hum">The Humidity is: <span id="humi"></span></div>
+            <div class="sunup">Sunrise: <span class="sunrise">No Information Available</span></div>
+            <div class="sundn">Sunset: <span class="sunset">No Information Available</span></div>       
+        </div>        
+        
         <div id="forecast-container">5 Day Forecast</div>
+        <p id="demo"></p>
     </div>
    
-
  
 
-    <div class="container">
-        <img src="" alt="" srcset="" id="weather-icon">
-        <div id="location">Unable to Fetch Weather</div>
-        <div class="desc">No Information Available.</div>
-        <div class="weather">
-            <div class="c">Error</div>
-            <div class="circle"></div>
-            <div class="f">Error</div>
-        </div>
-        <div class="info">
-            <h4>Sunrise: <span class="sunrise">No Information Available</span></h4>
-            <h4>Sunset: <span class="sunset">No Information Available</span></h4>
-        </div>
+      
+      
 
-        <div class="container1">
-            <img src="" alt="" srcset="" id="weather-icon">
-            <div id="location">Unable to Fetch Weather</div>
-            <div class="desc">No Information Available.</div>
-            <div class="weather">
-                <div class="c">Error</div>
-                <div class="circle"></div>
-                <div class="f">Error</div>
-            </div>
-            <div class="info">
-                <h4>Sunrise: <span class="sunrise">No Information Available</span></h4>
-                <h4>Sunset: <span class="sunset">No Information Available</span></h4>
-            </div>
-    
-
-    </div>
+    <img src="" alt="" srcset="" id="weather-icon">
     <script src="scripts.js"></script>
 </body>
 

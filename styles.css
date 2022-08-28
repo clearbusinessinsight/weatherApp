@@ -2,7 +2,7 @@
 .flex-container {
   display: flex;
   flex-wrap: wrap;
-  background-color: DodgerBlue;
+  background-color: #f1f1f1;
 }
 
 #header-container {
@@ -36,13 +36,9 @@
   padding-left: 5vh;
 }
 
-
-
-
-
   #forecast-container {
-  background-color: #f1f1f1;
-  width: 78%;
+  background-color: bisque;
+  width: 100%;
   margin: 10px;
   text-align: center;
   line-height: 75px;
@@ -66,23 +62,49 @@
 .now {
   font-size: 20px;
   padding-left: 5vh;
-  padding-bottom: 2vh;
+  padding-bottom: 1vh;
 }
 .desc {
   font-size: 20px;
   padding-left: 5vh;
-  padding-bottom: 2vh;
-}
-
-label {
-  font-size: 20px;
-  padding-left: 5vh;
-  
+  padding-bottom: 1vh;
 }
 
 .temp {
-
+  font-size: 20px;
+  padding-left: 5vh;
+  padding-bottom: 1vh;
+  
 }
+
+.hum {
+  font-size: 20px;
+  padding-left: 5vh;
+  padding-bottom: 1vh;
+  
+}
+
+.wspeed {
+  font-size: 20px;
+  padding-left: 5vh;
+  padding-bottom: 1vh;
+}
+
+.sunup {
+  font-size: 20px;
+  padding-left: 5vh;
+  padding-bottom: 1vh;
+  
+}
+
+.sundn {
+  font-size: 20px;
+  padding-left: 5vh;
+  padding-bottom: 1vh;
+  
+}
+
+
 
 #citysearch {
   padding: 4px;
@@ -107,40 +129,6 @@ button[type=button] {
   margin-top: 10px;
   }
 
-
-
-.container {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  background: rgb(251, 242, 133);
-  background: radial-gradient(
-    circle,
-    rgba(198, 251, 133, 0.633) 0%,
-    rgba(214, 177, 74, 0.841) 35%,
-    rgba(230, 224, 113, 1) 100%
-  );
-}
-
-.container1 {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  background: rgb(251, 242, 133);
-  background: radial-gradient(
-    circle,
-    rgba(198, 251, 133, 0.633) 0%,
-    rgba(214, 177, 74, 0.841) 35%,
-    rgba(230, 224, 113, 1) 100%
-  );
-}
-
 .weather {
   display: flex;
   flex-direction: row;
@@ -152,12 +140,4 @@ button[type=button] {
 .desc {
   font-size: 1.25rem;
   text-transform: capitalize;
-}
-
-.circle {
-  background-color: black;
-  border-radius: 50px;
-  height: 15px;
-  width: 15px;
-  margin: 0 15px;
 }
