@@ -14,8 +14,8 @@
     <div id="header-container">Weather Dashboard</div>
     <div id="city-container">
         <h2>Search for a City:</h2>
-        <input type="text" id="csearch" placeholder="Enter A City Name Here..."></input>
-        <button type="submit" id="citysearch">Search</button>
+        <input type="text" id="csearch" placeholder="Enter City"></input>
+        <button type="submit" id="submit" onclick="bycity(csearch)">Search</button>
         <hr>
         <button type="button" class="btn1" onclick="newcity(-97.7431, 30.2672)">Austin</button>
         <button type="button" class="btn2" onclick="newcity(-87.65, 41.85)">Chicago</button>
@@ -31,17 +31,25 @@
     <div id="weather-container">
         <div id="current-container">
             <div id="location">Unable to Fetch Weather</div>
+            <img src="" alt="" srcset="" id="weather-icon">
             <div class="now"><span id='date-time'></span></div>         
             <div class="desc">No Information Available.</div>
             <div class="temp">The current Temperature is: <span class="c">Error</span><span>  or </span><span class="f">Error</span></div>
             <div class="wspeed">The Wind Speed is: <span id="newws"></span></div>
             <div class="hum">The Humidity is: <span id="humi"></span></div>
-            <div class="sunup">Sunrise: <span class="sunrise">No Information Available</span></div>
-            <div class="sundn">Sunset: <span class="sunset">No Information Available</span></div>       
+            <!--<div class="sunup">Sunrise: <span class="sunrise">No Information Available</span></div>-->
+            <!--<div class="sundn">Sunset: <span class="sunset">No Information Available</span></div>  -->   
         </div>        
         
-        <div id="forecast-container">5 Day Forecast</div>
-        <p id="demo"></p>
+        <div id="forecast-container">5 Day Forecast
+
+            <div id="day1">1</div>
+            <div id="day2">2</div>
+            <div id="day3">3</div>
+            <div id="day4">4</div>
+            <div id="day5">5</div>
+
+        </div>
     </div>
    
  

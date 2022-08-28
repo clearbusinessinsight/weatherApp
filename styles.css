@@ -26,24 +26,16 @@
   width: 78%;
 }
 
-#current-container {
+/*#current-container {
   background-color: #f1f1f1;
   width: 100%;
-}
+}*/
 
-#location {
+  #location {
   font-size: 50px;
   padding-left: 5vh;
 }
 
-  #forecast-container {
-  background-color: bisque;
-  width: 100%;
-  margin: 10px;
-  text-align: center;
-  line-height: 75px;
-  font-size: 30px;
-  }
 
   h2 {
       font-size: 3.5vh;
@@ -55,9 +47,12 @@
 #csearch {
   padding: 4px;
   font-size: 20px;
-  width: 90%;
+  width: 86%;
   background-color: lightskyblue;
  }
+
+
+
 
 .now {
   font-size: 20px;
@@ -106,7 +101,7 @@
 
 
 
-#citysearch {
+#submit {
   padding: 4px;
   font-size: 20px;
   width: 90%;
@@ -141,3 +136,21 @@ button[type=button] {
   font-size: 1.25rem;
   text-transform: capitalize;
 }
+
+
+#forecast-container {
+  background-color: bisque;
+  width: 100%;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+  }
+
+#day1 {
+  width: 20%;
+  background-color: #f1f1f1;
+}
+
+
+
