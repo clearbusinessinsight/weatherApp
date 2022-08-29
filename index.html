@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
 </head>
+
 <body>
   <div class="flex-container">
     <div id="header-container">Weather Dashboard</div>
@@ -31,18 +32,16 @@
     <div id="weather-container">
         <div id="current-container">
             <div id="location">Unable to Fetch Weather</div>
+            <div class="now"><span id='date'></span></div>  
             <img src="" alt="" srcset="" id="weather-icon">
-            <div class="now"><span id='date-time'></span></div>         
             <div class="desc">No Information Available.</div>
             <div class="temp">The current Temperature is: <span class="c">Error</span><span>  or </span><span class="f">Error</span></div>
             <div class="wspeed">The Wind Speed is: <span id="newws"></span></div>
             <div class="hum">The Humidity is: <span id="humi"></span></div>
-            <!--<div class="sunup">Sunrise: <span class="sunrise">No Information Available</span></div>-->
-            <!--<div class="sundn">Sunset: <span class="sunset">No Information Available</span></div>  -->   
         </div>        
         
-        <div id="forecast-container">5 Day Forecast
-
+        <div id="forecast-container">
+            <div id="Five-day">5 Day Forecast</div>
             <div id="day1">1</div>
             <div id="day2">2</div>
             <div id="day3">3</div>
@@ -58,7 +57,11 @@
       
 
     <img src="" alt="" srcset="" id="weather-icon">
-    <script src="scripts.js"></script>
+  
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+  <script src="scripts.js"></script>
+
 </body>
 
 </html>

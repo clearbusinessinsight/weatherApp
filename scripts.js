@@ -6,10 +6,14 @@ var loc = document.querySelector('#location');
 var tempC = document.querySelector('.c');
 var tempF = document.querySelector('.f');
 var desc = document.querySelector('.desc');
-var sunriseDOM = document.querySelector('.sunrise');
-var sunsetDOM = document.querySelector('.sunset');
 var wind = document.querySelector('wind-speed')
-//var csearch = "cincinnati"  
+
+n =  new Date();
+y = n.getFullYear();
+m = n.getMonth() + 1;
+d = n.getDate();
+document.getElementById("date").innerHTML = "(" + m + "/" + d + "/" + y + ")";
+
 
 window.addEventListener('load', () => {
   var long;
@@ -36,44 +40,33 @@ window.addEventListener('load', () => {
           var { speed } = data.wind;
           var iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
           var fahrenheit = (temp * 9) / 5 + 32;
-
-          // Converting Epoch(Unix) time to GMT
-          var sunriseGMT = new Date(sunrise * 1000);
-          var sunsetGMT = new Date(sunset * 1000);
           var ws = speed
           var humi = humidity
           
           document.getElementById("newws").innerHTML=ws;
           document.getElementById("humi").innerHTML=humi;
           
-         
-          // Interacting with DOM to show data
           iconImg.src = iconUrl;
           loc.textContent = `${place}`;
           desc.textContent = `${description}`;
           tempC.textContent = `${temp.toFixed(2)} °C`;
           tempF.textContent = `${fahrenheit.toFixed(2)} °F`;
-          /*sunriseDOM.textContent = `${sunriseGMT.toLocaleDateString()}, ${sunriseGMT.toLocaleTimeString()}`;*/
-          /*sunsetDOM.textContent = `${sunsetGMT.toLocaleDateString()}, ${sunsetGMT.toLocaleTimeString()}`;*/
           ws = speed.toString()
           humi = humidity.toString()
-          
+
+          forecast(lat, long, api, date)
+
           });
     });
   }
 });
 
-
 var dt = new Date();
 document.getElementById('date-time').innerHTML=dt;
 
 function newcity(long, lat) {
-  //long = -84.0267033
-  //lat = 39.4093456
- 
+   
  var base = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${api}&units=metric`;
- 
-
   fetch(base)
   .then((response) => {
     return response.json();
@@ -86,26 +79,17 @@ function newcity(long, lat) {
     var { speed } = data.wind;
     var iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
     var fahrenheit = (temp * 9) / 5 + 32;
-
-    // Converting Epoch(Unix) time to GMT
-    var sunriseGMT = new Date(sunrise * 1000);
-    var sunsetGMT = new Date(sunset * 1000);
     var ws = speed
     var humi = humidity
-    
-    
+        
     document.getElementById("newws").innerHTML=ws;
     document.getElementById("humi").innerHTML=humi;
     
-   
-    // Interacting with DOM to show data
     iconImg.src = iconUrl;
     loc.textContent = `${place}`;
     desc.textContent = `${description}`;
     tempC.textContent = `${temp.toFixed(2)} °C`;
     tempF.textContent = `${fahrenheit.toFixed(2)} °F`;
-   // sunriseDOM.textContent = `${sunriseGMT.toLocaleDateString()}, ${sunriseGMT.toLocaleTimeString()}`;
-    //sunsetDOM.textContent = `${sunsetGMT.toLocaleDateString()}, ${sunsetGMT.toLocaleTimeString()}`;
     ws = speed.toString()
     humi = humidity.toString()
 
@@ -118,10 +102,10 @@ function bycity(csearch) {
  console.log(value)
  console.log(api)
  
- var newlocation =  'http://api.positionstack.com/v1/forward?access_key=bad1b77df306b29df1dd5d73b4105a2c&query=${value}';
+// var newlocation =  `http://api.positionstack.com/v1/forward?access_key=bad1b77df306b29df1dd5d73b4105a2c&query=${value}`;
 
 
- var basecity = 'https://api.openweathermap.org/data/2.5/weather?q=${value}&callback=test&appid=a12134e03f5366a89d3e1787025a21c4&units=metric';
+ var basecity = `https://api.openweathermap.org/data/2.5/weather?q=${value}&appid=a12134e03f5366a89d3e1787025a21c4&units=metric`;
  
 
   fetch(basecity)
@@ -138,14 +122,15 @@ function bycity(csearch) {
     var fahrenheit = (temp * 9) / 5 + 32;
 
     // Converting Epoch(Unix) time to GMT
-    var sunriseGMT = new Date(sunrise * 1000);
-    var sunsetGMT = new Date(sunset * 1000);
+    //var sunriseGMT = new Date(sunrise * 1000);
+    //var sunsetGMT = new Date(sunset * 1000);
     var ws = speed
     var humi = humidity
-        
+        console.log(data)
     document.getElementById("newws").innerHTML=ws;
     document.getElementById("humi").innerHTML=humi;
-       
+      
+
     // Interacting with DOM to show data
     iconImg.src = iconUrl;
     loc.textContent = `${place}`;
@@ -161,7 +146,7 @@ function bycity(csearch) {
 
 }
 
-
+forecast()
 
 
 
