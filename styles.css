@@ -1,181 +1,208 @@
+/* Main page */
+.main-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: auto;
+  color: #f1f1f1;
+  font-size: 5vh;
+}
 
-.flex-container {
+/* Main header bar */
+#header {
+  background-color: blue;
+  width: 100%;
+  color: #f1f1f1;
+  font-size: 8vh;
+  text-align: center;
+  
+}
+
+/* Box containing all of the city options */ 
+#city-container {
   display: flex;
   flex-wrap: wrap;
-  background-color: bisque;
+ 
+  width: 20%;
+  min-width: 25vh;
+  
 }
 
-#header-container {
-  background-color: blue;
-  width: 98%;
-  margin: 10px;
-  text-align: center;
-  line-height: 75px;
-  font-size: 7vh;
-  color: #f1f1f1;
-}
-#city-container {
-  background-color: bisque;
-  width: 19%;
-  height: 100%;
-  margin: 10px;
+/* Containes the Search for a city header*/
+.cityheader {
+width: 100%;
+min-width: 20vh;
+margin: 1vh;
+font-size: 3vh;
+text-align: left;
+color: black;
+font-size: 4vh;
 }
 
-#weather-container {
-  background-color: bisque;
-  width: 78%;
-}
-
-/*#current-container {
-  background-color: #f1f1f1;
-  width: 100%;
-}*/
-
-  #location {
-  font-size: 50px;
-  padding-left: 5vh;
-}
-
-
-  h2 {
-      font-size: 3.5vh;
-      background-color: aqua;
-      padding-left: 1vh;
-       margin-top: 10px;
-    }
-   
+/* Create the box to enter a city to search for */
 #csearch {
-  padding: 4px;
-  font-size: 20px;
-  width: 86%;
-  background-color: lightskyblue;
- }
-
-
-
-
-.now {
-  font-size: 20px;
-  padding-left: 5vh;
-  padding-bottom: 1vh;
-}
-.desc {
-  font-size: 20px;
-  padding-left: 5vh;
-  padding-bottom: 1vh;
+width: 100%;
+min-width: 20vh;
+margin: 1vh;
+font-size: 3vh;
+text-align: center;
 }
 
-.temp {
-  font-size: 20px;
-  padding-left: 5vh;
-  padding-bottom: 1vh;
-  
-}
-
-.hum {
-  font-size: 20px;
-  padding-left: 5vh;
-  padding-bottom: 1vh;
-  
-}
-
-.wspeed {
-  font-size: 20px;
-  padding-left: 5vh;
-  padding-bottom: 1vh;
-}
-
-.sunup {
-  font-size: 20px;
-  padding-left: 5vh;
-  padding-bottom: 1vh;
-  
-}
-
-.sundn {
-  font-size: 20px;
-  padding-left: 5vh;
-  padding-bottom: 1vh;
-  
-}
-
-
-
+/* Create the submit button*/
 #submit {
-  padding: 4px;
-  font-size: 20px;
-  width: 90%;
-  background-color: lightskyblue;
-  margin-top: 10px;
+background-color: lightskyblue;
+width: 100%;
+min-width: 20vh;
+margin: 1vh;
+font-size: 3vh;
+text-align: center;
+border-radius: .75vh;
 }
 
-hr {
-  height: 2px;
-  width: 90%;
-  margin-top: 20px;
-  background-color: black;
-}
-
+/* Create all the hard search buttons*/
 button[type=button] {
-  padding: 4px;
-  font-size: 20px;
-  width: 90%;
-  background-color: darkgrey;
-  margin-top: 10px;
-  }
+background-color: lightgrey;
+width: 100%;
+min-width: 20vh;
+margin: 1vh;
+font-size: 3vh;
+text-align: center;
+}
 
-.weather {
+/* Create the box for the weather conditions*/
+.weather-container {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin: 15px 0;
-  font-size: 1.5rem;
+  flex-wrap: wrap;
+  
+  width: 80%;
+  min-width: 25vh;
+  
 }
 
-.desc {
-  font-size: 1.25rem;
-  text-transform: capitalize;
+/* Create the box for the current weather conditions*/
+#current-container {
+  display: flex;
+  flex-wrap: wrap;
+  color: black;
+  border: 5px;
+  border-color: black;
+  border-style: double;
+  margin: 3vh;
 }
 
+/* Display the city */
+#location {
+  margin-left: 3vh;
+  padding: 1vh;
+  font-size: 8vh;
+}
 
-#forecast-container {
-  background-color: bisque;
+/* Display the current date */
+.now {
+  margin-left: 3vh;
+  padding: 1vh;
+  font-size: 8vh;
+}
+
+/* Display the current Icon */
+#weather-icon {
+  margin-left: 5vh;
+  }
+
+/* Current Temperature*/
+.temp {
   width: 100%;
-  justify-content: center;
+  font-size: 4vh;
+  margin-left: 3vh;
+  padding: 1vh;
+  }
+
+/* Current wind speed*/
+.wspeed {
+  width: 100%;
+  margin-left: 3vh;
+  font-size: 4vh;
+  padding: 1vh;
+}
+
+/* Current Humidity */
+.hum {
+  width: 100%;
+  margin-left: 3vh;
+  padding: 1vh;
+  font-size: 4vh;
+}
+
+/* Current UV conditions */
+.uv {
+  width: 100%;
+  margin-left: 3vh;
+  padding: 1vh;
+  font-size: 4vh;
+}
+ 
+Forecast containers 
+#forecast-container {
+  display: inline-flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
   align-items: center;
 
   }
 
-  #Five-Day {
-    background-color: #f1f1f1;
-    width: 100%;
-    margin: 10px;
-    font-size: 30px;
-    }
+  #five-day-header {
+  width: 100%;
+  color: #f1f1f1;
+  text-align: left;
+  font-size: 4vh;
+  margin-left: 1vh;
+  margin-bottom: 2vh;
+  padding-left: 2vh;
+  color: black;
+  }
   
 
-#day1 {
-  width: 18%;
-  background-color: #f1f1f1;
-  flex-direction: row;
-}
-#day2 {
-  width: 18%;
-  background-color: #f1f1f1;
-  position: relative;
-  flex-direction: row;
-}
-
-#day3 {
-  width: 18%;
-  background-color: #f1f1f1;
+.weather-block {
+  display: inline-flex;
+  flex-direction: column;
+  width: auto;
+  padding: 1vh;
+  background-color: slategrey;
+  margin-left: 3vh;
+  color: #f1f1f1;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-#day4 {
-  width: 18%;
-  background-color: #f1f1f1;
+.fdate {
+  width: 100%;
+  font-size: 3vh;
+  padding: 1vh;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  
 }
-#day5 {
-  width: 18%;
-  background-color: #f1f1f1;
+
+.image {
+  width: 100%;
+  font-size: 3vh;
+  padding: 1vh;
+
+}
+
+.temp1 {
+  width: 100%;
+  font-size: 2vh;
+  padding: 1vh;
+}
+
+.wind {
+  width: 100%;
+  font-size: 2vh;
+  padding: 1vh;
+}
+
+.humidity {
+  width: 100%;
+  font-size: 2vh;
+  padding: 1vh;
 }

@@ -1,19 +1,28 @@
 // Openweathermap API appKey
 var api = 'a12134e03f5366a89d3e1787025a21c4';
-var cname = "citysearch"
-var iconImg = document.getElementById('weather-icon');
-var loc = document.querySelector('#location');
-var tempC = document.querySelector('.c');
-var tempF = document.querySelector('.f');
-var desc = document.querySelector('.desc');
-var wind = document.querySelector('wind-speed')
 
+// Will be the name of the city that the user enters
+var cname = "citysearch"
+// Pulled from the api
+var iconImg = document.getElementById('weather-icon');
+// The location being displayed
+var loc = document.querySelector('#location');
+// Temperature in Celcius from the api
+var tempC = document.querySelector('.c');
+// Temperature in Farenheit from the api
+var tempF = document.querySelector('.f');
+// The description returned from the api
+var desc = document.querySelector('.desc');
+// Wind speed returned from the api
+var wind = document.querySelector('wind-speed')
+var csearch = ""
+
+// Returns the date
 n =  new Date();
 y = n.getFullYear();
 m = n.getMonth() + 1;
 d = n.getDate();
 document.getElementById("date").innerHTML = "(" + m + "/" + d + "/" + y + ")";
-
 
 window.addEventListener('load', () => {
   var long;
@@ -25,6 +34,7 @@ window.addEventListener('load', () => {
       // Storing Longitude and Latitude in variables
       long = position.coords.longitude;
       lat = position.coords.latitude;
+
       var base = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${api}&units=metric`;
 
       // Using fetch to get data
@@ -35,35 +45,53 @@ window.addEventListener('load', () => {
         .then((data) => {
           var { temp, humidity } = data.main;
           var place = data.name;
-          var { description, icon } = data.weather[0];
-          var { sunrise, sunset } = data.sys;
+          var { icon } = data.weather[0];
           var { speed } = data.wind;
           var iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
           var fahrenheit = (temp * 9) / 5 + 32;
           var ws = speed
           var humi = humidity
-          
+        
           document.getElementById("newws").innerHTML=ws;
           document.getElementById("humi").innerHTML=humi;
-          
+
           iconImg.src = iconUrl;
           loc.textContent = `${place}`;
-          desc.textContent = `${description}`;
+          /*desc.textContent = `${description}`;*/
           tempC.textContent = `${temp.toFixed(2)} °C`;
           tempF.textContent = `${fahrenheit.toFixed(2)} °F`;
           ws = speed.toString()
-          humi = humidity.toString()
 
-          forecast(lat, long, api, date)
+          console.log(data)
+          
+          forecast(lat, long)
 
           });
-    });
-  }
+        });
+   }
 });
 
-var dt = new Date();
-document.getElementById('date-time').innerHTML=dt;
 
+function getInputValue() {
+  var scity =document.getElementById("csearch").value
+  
+  var basecity = `https://api.openweathermap.org/data/2.5/weather?q=${scity}&appid=a12134e03f5366a89d3e1787025a21c4&units=metric`;
+  fetch(basecity)
+ .then((response) => {
+   return response.json();
+ })
+ .then((data) => {
+   lat = data.coord.lat
+   lon = data.coord.lon
+
+     // Load the coordinates into function newcity to populate the page
+   newcity(lon, lat)
+   
+ });
+
+}
+
+// -----------------------------------------------------------------------------------------------------------------------
 function newcity(long, lat) {
    
  var base = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${api}&units=metric`;
@@ -75,7 +103,7 @@ function newcity(long, lat) {
     var { temp, humidity } = data.main;
     var place = data.name;
     var { description, icon } = data.weather[0];
-    var { sunrise, sunset } = data.sys;
+    // var { sunrise, sunset } = data.sys;
     var { speed } = data.wind;
     var iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
     var fahrenheit = (temp * 9) / 5 + 32;
@@ -87,67 +115,83 @@ function newcity(long, lat) {
     
     iconImg.src = iconUrl;
     loc.textContent = `${place}`;
-    desc.textContent = `${description}`;
     tempC.textContent = `${temp.toFixed(2)} °C`;
     tempF.textContent = `${fahrenheit.toFixed(2)} °F`;
     ws = speed.toString()
-    humi = humidity.toString()
-
+    forecast(lat, long)
   });
+   
 
 }
 
-function bycity(csearch) {
-  var value = document.getElementById("csearch").value
- console.log(value)
- console.log(api)
+// -------------------------------------------------------------------------------------------------------
+function bycity() {
+   
  
-// var newlocation =  `http://api.positionstack.com/v1/forward?access_key=bad1b77df306b29df1dd5d73b4105a2c&query=${value}`;
-
-
- var basecity = `https://api.openweathermap.org/data/2.5/weather?q=${value}&appid=a12134e03f5366a89d3e1787025a21c4&units=metric`;
- 
-
-  fetch(basecity)
+  //Get the coordinates of the city (csearch)
+ var basecity = `https://api.openweathermap.org/data/2.5/weather?q=${scity}&appid=a12134e03f5366a89d3e1787025a21c4&units=metric`;
+   fetch(basecity)
   .then((response) => {
     return response.json();
   })
   .then((data) => {
-    var { temp, humidity } = data.main;
-    var place = data.name;
-    var { description, icon } = data.weather[0];
-    var { sunrise, sunset } = data.sys;
-    var { speed } = data.wind;
-    var iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
-    var fahrenheit = (temp * 9) / 5 + 32;
-
-    // Converting Epoch(Unix) time to GMT
-    //var sunriseGMT = new Date(sunrise * 1000);
-    //var sunsetGMT = new Date(sunset * 1000);
-    var ws = speed
-    var humi = humidity
-        console.log(data)
-    document.getElementById("newws").innerHTML=ws;
-    document.getElementById("humi").innerHTML=humi;
-      
-
-    // Interacting with DOM to show data
-    iconImg.src = iconUrl;
-    loc.textContent = `${place}`;
-    desc.textContent = `${description}`;
-    tempC.textContent = `${temp.toFixed(2)} °C`;
-    tempF.textContent = `${fahrenheit.toFixed(2)} °F`;
-    //sunriseDOM.textContent = `${sunriseGMT.toLocaleDateString()}, ${sunriseGMT.toLocaleTimeString()}`;
-    //sunsetDOM.textContent = `${sunsetGMT.toLocaleDateString()}, ${sunsetGMT.toLocaleTimeString()}`;
-    ws = speed.toString()
-    humi = humidity.toString()
-
+    lat = data.coord.lat
+    lon = data.coord.lon
+    // Load the coordinates into function newcity to populate the page
+    newcity(lon, lat)
   });
+}
+
+//--------------------------------------------------------------------------------------------------------
+function forecast(lat, long) {
+  
+var future = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=${api}`;
+  
+    //var iconImg = document.getElementById('weather-image');
+
+
+    fetch(future)
+        .then((response) => {
+        return response.json();
+    })
+        .then((data) => {
+          console.log(data.list)
+                   
+        for(let i = 0; i < 5; i++) {
+          var date= new Date((data.list[((i+1)*8)-1].dt)*1000).toLocaleDateString();
+          var iconcode= data.list[((i+1)*8)-1].weather[0].icon;
+          var iconImg = `http://openweathermap.org/img/wn/${iconcode}@2x.png`;
+              
+          document.getElementById('image'+(i+1)).innerHTML = iconImg;
+          iconImg.src = ('image'+(i+1));
+
+          var tempK= data.list[((i+1)*8)-1].main.temp;
+          var tempf=(((tempK-273.5)*1.80)+32).toFixed(2);
+          var swind= data.list[((i+1)*8)-1].wind.speed;
+          var humid= data.list[((i+1)*8)-1].main.humidity;
+            
+           document.getElementById('fdate'+(i+1)).innerHTML = date;
+           document.getElementById('temp'+(i+1)).innerHTML = tempf;
+           document.getElementById('wind'+(i+1)).innerHTML = swind;
+           document.getElementById('humid'+(i+1)).innerHTML = humid;
+           
+          
+          
+        }
+        
+});
 
 }
 
-forecast()
 
+
+
+
+function uvstats(cityid, api) {
+
+
+
+}
 
 
 

@@ -11,54 +11,89 @@
 </head>
 
 <body>
-  <div class="flex-container">
-    <div id="header-container">Weather Dashboard</div>
-    <div id="city-container">
-        <h2>Search for a City:</h2>
-        <input type="text" id="csearch" placeholder="Enter City"></input>
-        <button type="submit" id="submit" onclick="bycity(csearch)">Search</button>
-        <hr>
-        <button type="button" class="btn1" onclick="newcity(-97.7431, 30.2672)">Austin</button>
-        <button type="button" class="btn2" onclick="newcity(-87.65, 41.85)">Chicago</button>
-        <button type="button" class="btn3" onclick="newcity(-74.006, 40.7143)">New York</button>
-        <button type="button" class="btn4" onclick="newcity(-81.3792, 28.5383)">Orlando</button>
-        <button type="button" class="btn5" onclick="newcity(-122.4194, 37.7749)">San Francisco</button>
-        <button type="button" class="btn6" onclick="newcity(-84.4569, 39.162)">Cincinnati</button>
-        <button type="button" class="btn7" onclick="newcity(-104.9847, 39.7392)">Denver</button>
-        <button type="button" class="btn8" onclick="newcity(-84.388, 33.749)">Atlanta</button>
-        <button type="button" class="btn8" onclick="newcity(-122.443, 47.2529)">Tacoma</button>
-    </div>
+   <div class="main-container">
+    <div id="header">Weather Dashboard</div>
 
-    <div id="weather-container">
+        <!--This box contains all of the options on the left side of the page -->
+        <div id="city-container">
+            <div class="cityheader"> Search for a city: </div>
+            <input type="text" id="csearch" placeholder="Enter City"></input>
+            <button type="submit" id="submit" onclick="getInputValue();">Search</button>
+
+            <button type="button" class="btn1" onclick="newcity(-97.7431, 30.2672)">Austin</button>
+            <button type="button" class="btn2" onclick="newcity(-87.65, 41.85)">Chicago</button>
+            <button type="button" class="btn3" onclick="newcity(-74.006, 40.7143)">New York</button>
+            <button type="button" class="btn4" onclick="newcity(-81.3792, 28.5383)">Orlando</button>
+            <button type="button" class="btn5" onclick="newcity(-122.4194, 37.7749)">San Francisco</button>
+            <button type="button" class="btn6" onclick="newcity(-84.4569, 39.162)">Cincinnati</button>
+            <button type="button" class="btn7" onclick="newcity(-104.9847, 39.7392)">Denver</button>
+            <button type="button" class="btn8" onclick="newcity(-84.388, 33.749)">Atlanta</button>
+            <button type="button" class="btn8" onclick="newcity(-122.443, 47.2529)">Tacoma</button>
+        </div>
+
+        <div class="weather-container">
         <div id="current-container">
             <div id="location">Unable to Fetch Weather</div>
-            <div class="now"><span id='date'></span></div>  
-            <img src="" alt="" srcset="" id="weather-icon">
-            <div class="desc">No Information Available.</div>
-            <div class="temp">The current Temperature is: <span class="c">Error</span><span>  or </span><span class="f">Error</span></div>
-            <div class="wspeed">The Wind Speed is: <span id="newws"></span></div>
-            <div class="hum">The Humidity is: <span id="humi"></span></div>
-        </div>        
+             <div class="now"><span id='date'></span></div>  
+              <img src="" alt="" srcset="" id="weather-icon">
+              <div class="temp">The current Temperature is: &nbsp;<span class="c">Error</span>&nbsp&nbsp or &nbsp&nbsp<span></span><span class="f">Error</span></div>
+              <div class="wspeed">The Wind Speed is:&nbsp<span id="newws"></span>&nbsp<span>mph</span></span></div>
+              <div class="hum">The Humidity is:&nbsp<span id="humi"></span>&nbsp<span>%</span></span></div>
+              <div class="uv">The UV Index is:&nbsp<span id="uv">Data Not Available</span></div>
+        </div>    
         
-        <div id="forecast-container">
-            <div id="Five-day">5 Day Forecast</div>
-            <div id="day1">1</div>
-            <div id="day2">2</div>
-            <div id="day3">3</div>
-            <div id="day4">4</div>
-            <div id="day5">5</div>
+        
+    <div id="five-day-header">5-Day Forecast</div>
 
-        </div>
+    <div Class="weather-block">
+            <div class="fdate" id="fdate1"></div>
+           
+            <div class="image" id="image1"></div>
+            <div class="temp1">Temp:&nbsp&nbsp<span id="temp1"></span></div>
+            <div class="wind">Wind:&nbsp&nbsp<span id="wind1"></span>&nbsp&nbsp<span>MPH</span></span></div>
+            <div class="humidity">Humidity:&nbsp&nbsp<span id="humid1"></span>&nbsp<span>%</span></div>
+     </div>
+
+    <div Class="weather-block">
+             <div class="fdate" id="fdate2"></div>
+           
+            <div class="image" id="image2"></div>
+            <div class="temp1">Temp:&nbsp&nbsp<span id="temp2"></span></div>
+            <div class="wind">Wind:&nbsp&nbsp<span id="wind2"></span>&nbsp&nbsp<span>MPH</span></span></div>
+            <div class="humidity">Humidity:&nbsp&nbsp<span id="humid2"></span>&nbsp<span>%</span></div>
     </div>
-   
- 
 
-      
-      
+    <div Class="weather-block">
+        <div class="fdate" id="fdate3"></div>
+        
+        <div class="image" id="image3"></div>
+        <div class="temp1">Temp:&nbsp&nbsp<span id="temp3"></span></div>
+        <div class="wind">Wind:&nbsp&nbsp<span id="wind3"></span>&nbsp&nbsp<span>MPH</span></span></div>
+        <div class="humidity">Humidity:&nbsp&nbsp<span id="humid3"></span>&nbsp<span>%</span></div>
+    </div>
 
-    <img src="" alt="" srcset="" id="weather-icon">
-  
-  
+    <div Class="weather-block">
+        <div class="fdate" id="fdate4"></div>
+        
+        <div class="image" id="image4"></div>
+        <div class="temp1">Temp:&nbsp&nbsp<span id="temp4"></span></div>
+        <div class="wind">Wind:&nbsp&nbsp<span id="wind4"></span>&nbsp&nbsp<span>MPH</span></span></div>
+        <div class="humidity">Humidity:&nbsp&nbsp<span id="humid4"></span>&nbsp<span>%</span></div>
+    </div>
+
+    <div Class="weather-block">
+        <div class="fdate" id="fdate5"></div>
+       
+        <div class="image" id="image5"></div>
+        <div class="temp1">Temp:&nbsp&nbsp<span id="temp5"></span></div>
+        <div class="wind">Wind:&nbsp&nbsp<span id="wind5"></span>&nbsp&nbsp<span>MPH</span></span></div>
+        <div class="humidity">Humidity:&nbsp&nbsp<span id="humid5"></span>&nbsp<span>%</span></div>
+    </div>
+   </div>  
+   </div>      
+
+  <img src="" alt="" srcset="" id="weather-icon">
+    
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
   <script src="scripts.js"></script>
 
