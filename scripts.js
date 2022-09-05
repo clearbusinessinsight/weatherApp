@@ -58,26 +58,28 @@
               tempC.textContent = `${temp.toFixed(2)} °C`;
               tempF.textContent = `${fahrenheit.toFixed(2)} °F`;
               ws = speed.toString()
-              
-              clearlocalstorage()
+              //clearlocalstorage()
               console.log(localStorage)
-              console.log(place)
+              //console.log(place)
               storecityname(place)
               forecast(lat, long)
-              buttons1()
-              
+              buttons1()            
             });
+            
          });
+        
         }
-      });
+       
+      }
+      
+      );
+      
 
 //--------------------------------------------------------------------------------------------------------------------------
     function getInputValue() {
           var scity =document.getElementById("csearch").value
           scity = scity.toUpperCase();
-          
-           
-            
+                 
           var basecity = `https://api.openweathermap.org/data/2.5/weather?q=${scity}&appid=a12134e03f5366a89d3e1787025a21c4&units=metric`;
                 fetch(basecity)
                   .then((response) => {
@@ -108,7 +110,7 @@
 
       var clear = document.getElementById("csearch");
       clear.value = ''
-              
+                          
     }
 
 // -----------------------------------------------------------------------------------------------------------------------
@@ -193,22 +195,23 @@
 //---------------------------------------------------------------------------------------------------------
     function storecityname(scity) {
           var names = []
-          names = JSON.parse(localStorage.getItem('weather')) || [];
+          names = JSON.parse(localStorage.getItem('app')) || [];
           names.push(scity);
-          localStorage.setItem('weather', JSON.stringify(names));
+          localStorage.setItem('app', JSON.stringify(names));
 
     };
 
   //---------------------------------------------------------------------------------------------------------------------------------------
-function clearlocalstorage() {
-localStorage.clear()
+function clearstorage() {
+      localStorage.clear()
+      location.reload()
 }
 
 //---------------------------------------------------------------------------------------------------------------------
 function buttons1() {
-        names = JSON.parse(localStorage.getItem('weather')) || [];
+        names = JSON.parse(localStorage.getItem('app')) || [];
         //console.log(names[10])
-      for (let i = 0; i < (names.length +1); i++) {
+      for (let i = 0; i < (names.length); i++) {
         document.getElementById('btn'+(i+1)).innerHTML = names[i];
         //console.log(names[i])
 
@@ -220,7 +223,7 @@ function buttons1() {
 function getbtnvalue(btn) {
   var scity = btn
   //console.log(btn)
-    
+  if (scity != undefined) { 
   var basecity = `https://api.openweathermap.org/data/2.5/weather?q=${scity}&appid=a12134e03f5366a89d3e1787025a21c4&units=metric`;
         fetch(basecity)
           .then((response) => {
@@ -240,9 +243,14 @@ function getbtnvalue(btn) {
                 
                   }
               );
-
+                }
 var clear = document.getElementById("csearch");
 clear.value = ''
       
 }
 
+function test(){
+
+localStorage.removeItem("name");
+
+}

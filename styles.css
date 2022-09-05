@@ -69,6 +69,20 @@ font-size: 3vh;
 text-align: center;
 }
 
+#clearstorage {
+background-color: red;
+border-radius: 1vh;
+font: 2vh;
+margin: 1vh;
+
+
+}
+
+
+
+
+
+
 /* Create the box for the weather conditions*/
 .weather-container {
   display: flex;
