@@ -1,6 +1,5 @@
     // Openweathermap API appKey
     var api = 'a12134e03f5366a89d3e1787025a21c4';
-
     // Will be the name of the city that the user enters
     var cname = "citysearch"
     // Pulled from the api
@@ -15,6 +14,8 @@
     var desc = document.querySelector('.desc');
     // Wind speed returned from the api
     var wind = document.querySelector('wind-speed')
+    var long;
+    var lat;
 
       // Returns the date
       n =  new Date();
@@ -24,8 +25,7 @@
       document.getElementById("date").innerHTML = "(" + m + "/" + d + "/" + y + ")";
 
     window.addEventListener('load', () => {
-    var long;
-    var lat;
+    
  
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition((position) => {
@@ -58,7 +58,14 @@
               tempC.textContent = `${temp.toFixed(2)} °C`;
               tempF.textContent = `${fahrenheit.toFixed(2)} °F`;
               ws = speed.toString()
-            forecast(lat, long)
+              
+              clearlocalstorage()
+              console.log(localStorage)
+              console.log(place)
+              storecityname(place)
+              forecast(lat, long)
+              buttons1()
+              
             });
          });
         }
@@ -67,19 +74,41 @@
 //--------------------------------------------------------------------------------------------------------------------------
     function getInputValue() {
           var scity =document.getElementById("csearch").value
-  
+          scity = scity.toUpperCase();
+          
+           
+            
           var basecity = `https://api.openweathermap.org/data/2.5/weather?q=${scity}&appid=a12134e03f5366a89d3e1787025a21c4&units=metric`;
                 fetch(basecity)
                   .then((response) => {
+                    if(response.status > 299){
+                          alert(scity + " is not Found, Please enter a different city!")
+                        return;
+                      }
                     return response.json();
-              })
-                  .then((data) => {
-                    lat = data.coord.lat
-                    lon = data.coord.lon
-                    // Load the coordinates into function newcity to populate the page
-                    newcity(lon, lat)
-              });
+                  })
+                    .then((data) => {
+   
+                          lat = data.coord.lat
+                          lon = data.coord.lon
+                          storecityname(scity)
+                          console.log(localStorage)
 
+                        // Populate the buttons
+                        buttons1(scity)
+
+                        //names = JSON.parse(localStorage.getItem('weather')) || [];
+                        //console.log(names)
+
+                         // Load the coordinates into function newcity to populate the page
+                          newcity(lon, lat)
+                        
+                          }
+                      );
+
+      var clear = document.getElementById("csearch");
+      clear.value = ''
+              
     }
 
 // -----------------------------------------------------------------------------------------------------------------------
@@ -108,10 +137,11 @@
                         tempF.textContent = `${fahrenheit.toFixed(2)} °F`;
                         ws = speed.toString()
 
+                                              
                         // Reset the value of the input field
                         var clear = document.getElementById("csearch");
-                        clear.value = 'Enter New City'
-
+                        clear.value = ''
+   
                         forecast(lat, long)
                   });
   }
@@ -127,6 +157,7 @@
                 .then((data) => {
                   lat = data.coord.lat
                   lon = data.coord.lon
+                  
                     // Load the coordinates into function newcity to populate the page
                   newcity(lon, lat)
               });
@@ -158,4 +189,60 @@
                    }
               });
     }
+
+//---------------------------------------------------------------------------------------------------------
+    function storecityname(scity) {
+          var names = []
+          names = JSON.parse(localStorage.getItem('weather')) || [];
+          names.push(scity);
+          localStorage.setItem('weather', JSON.stringify(names));
+
+    };
+
+  //---------------------------------------------------------------------------------------------------------------------------------------
+function clearlocalstorage() {
+localStorage.clear()
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+function buttons1() {
+        names = JSON.parse(localStorage.getItem('weather')) || [];
+        //console.log(names[10])
+      for (let i = 0; i < (names.length +1); i++) {
+        document.getElementById('btn'+(i+1)).innerHTML = names[i];
+        //console.log(names[i])
+
+}
+}
+
+//---------------------------------------------------------------------------------------------------------------------------
+
+function getbtnvalue(btn) {
+  var scity = btn
+  //console.log(btn)
+    
+  var basecity = `https://api.openweathermap.org/data/2.5/weather?q=${scity}&appid=a12134e03f5366a89d3e1787025a21c4&units=metric`;
+        fetch(basecity)
+          .then((response) => {
+            if(response.status > 299){
+                  alert(scity + " is not Found, Please enter a different city!")
+                return;
+              }
+            return response.json();
+          })
+            .then((data) => {
+              //clearlocalstorage()
+                  lat = data.coord.lat
+                  lon = data.coord.lon
+                  //console.log(localStorage)
+                 // Load the coordinates into function newcity to populate the page
+                  newcity(lon, lat)
+                
+                  }
+              );
+
+var clear = document.getElementById("csearch");
+clear.value = ''
+      
+}
 
