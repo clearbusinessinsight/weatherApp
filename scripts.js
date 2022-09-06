@@ -240,8 +240,7 @@ function getbtnvalue(btn) {
                   //console.log(localStorage)
                  // Load the coordinates into function newcity to populate the page
                   newcity(lon, lat)
-                
-                  }
+              }
               );
                 }
 var clear = document.getElementById("csearch");
@@ -249,8 +248,3 @@ clear.value = ''
       
 }
 
-function test(){
-
-localStorage.removeItem("name");
-
-}

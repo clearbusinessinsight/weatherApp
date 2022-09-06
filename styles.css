@@ -15,7 +15,6 @@
   color: #f1f1f1;
   font-size: 6vh;
   text-align: center;
-  
 }
 
 /* Box containing all of the city options */ 
@@ -74,14 +73,7 @@ background-color: red;
 border-radius: 1vh;
 font: 2vh;
 margin: 1vh;
-
-
 }
-
-
-
-
-
 
 /* Create the box for the weather conditions*/
 .weather-container {
