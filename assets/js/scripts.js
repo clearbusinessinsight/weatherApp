@@ -46,7 +46,7 @@
                 var place = data.name;
                 var { icon } = data.weather[0];
                 var { speed } = data.wind;
-                var iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+                var iconUrl = `https://openweathermap.org/img/wn/${icon}@2x.png`;
                 var fahrenheit = (temp * 9) / 5 + 32;
                 var ws = speed
                 var humi = humidity
@@ -125,7 +125,7 @@
                     var place = data.name;
                     var { icon } = data.weather[0];
                     var { speed } = data.wind;
-                    var iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+                    var iconUrl = `https://openweathermap.org/img/wn/${icon}@2x.png`;
                     var fahrenheit = (temp * 9) / 5 + 32;
                     var ws = speed
                     var humi = humidity
