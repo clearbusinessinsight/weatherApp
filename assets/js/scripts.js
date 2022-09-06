@@ -24,6 +24,7 @@
       d = n.getDate();
       document.getElementById("date").innerHTML = "(" + m + "/" + d + "/" + y + ")";
 
+   
     window.addEventListener('load', () => {
     
  
@@ -58,7 +59,7 @@
               tempC.textContent = `${temp.toFixed(2)} °C`;
               tempF.textContent = `${fahrenheit.toFixed(2)} °F`;
               ws = speed.toString()
-              //clearlocalstorage()
+              
               console.log(localStorage)
               console.log(iconImg.src)
               storecityname(place)
@@ -93,8 +94,9 @@
    
                           lat = data.coord.lat
                           lon = data.coord.lon
+
                           storecityname(scity)
-                          console.log(localStorage)
+                         // console.log(localStorage)
 
                         // Populate the buttons
                         buttons1(scity)
@@ -196,10 +198,16 @@
     function storecityname(scity) {
           var names = []
           names = JSON.parse(localStorage.getItem('app')) || [];
+
+        if(names.includes(scity)){
+          alert(scity + " already exist");
+          }
+        else{
           names.push(scity);
           localStorage.setItem('app', JSON.stringify(names));
+      }}
 
-    };
+          
 
   //---------------------------------------------------------------------------------------------------------------------------------------
 function clearstorage() {
