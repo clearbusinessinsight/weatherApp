@@ -80,16 +80,9 @@
     function getInputValue() {
           var scity =document.getElementById("csearch").value
           scity = scity.toUpperCase();
-          console.log(scity)
-
+          
          if (scity != "") {
-            
-
-        
-        
-            
-            
-        
+ 
           var basecity = `https://api.openweathermap.org/data/2.5/weather?q=${scity}&appid=a12134e03f5366a89d3e1787025a21c4&units=metric`;
                 fetch(basecity)
                   .then((response) => {
