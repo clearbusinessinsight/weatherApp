@@ -60,7 +60,7 @@
               ws = speed.toString()
               //clearlocalstorage()
               console.log(localStorage)
-              //console.log(place)
+              console.log(iconImg.src)
               storecityname(place)
               forecast(lat, long)
               buttons1()            
@@ -177,7 +177,7 @@
                   for(let i = 0; i < 5; i++) {
                       var date= new Date((data.list[((i+1)*8)-1].dt)*1000).toLocaleDateString();
                       var iconcode= data.list[((i+1)*8)-1].weather[0].icon;
-                      var iconImg = `http://openweathermap.org/img/wn/${iconcode}@2x.png`; 
+                      var iconImg = `https://openweathermap.org/img/wn/${iconcode}@2x.png`; 
                           document.getElementById('image'+(i+1)).src = iconImg;
                           iconImg.src = ('image'+(i+1));
                       var tempK= data.list[((i+1)*8)-1].main.temp;
