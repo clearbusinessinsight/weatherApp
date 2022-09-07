@@ -86,10 +86,10 @@
           var basecity = `https://api.openweathermap.org/data/2.5/weather?q=${scity}&appid=a12134e03f5366a89d3e1787025a21c4&units=metric`;
                 fetch(basecity)
                   .then((response) => {
-                    if(response.status > 299){
+                    if(!response.ok){
                           alert(scity + " is not Found, Please enter a different city!")
-                        return;
-                      }
+                    return;
+                    }
                     return response.json();
                   })
                     .then((data) => {
