@@ -64,7 +64,10 @@
               console.log(iconImg.src)
               storecityname(place)
               forecast(lat, long)
-              buttons1()            
+              buttons1()   
+              //getUVIndex(lat, long)  
+              console.log(lat)
+              console.log(long)       
             });
             
          });
@@ -88,7 +91,7 @@
                   .then((response) => {
                     if(!response.ok){
                           alert(scity + " is not Found, Please enter a different city!")
-                    return;
+                          return Promise.reject("Invalid Input Entered")
                     }
                     return response.json();
                   })
@@ -261,3 +264,31 @@ clear.value = ''
       
 }
 
+function getUVIndex(lat, long) {
+
+  var lat = lat;
+  var lng = long;
+  var alt = $('#alt').val();
+  var ozone = $('#ozone').val();
+  var dt = $('#dt').val();
+ 
+  $.ajax({
+    type: 'GET',
+    dataType: 'json',
+    beforeSend: function(request) {
+      request.setRequestHeader('x-access-token', 'f196dde80992aa04259291b38d4f0534');
+    },
+    url: 'https://api.openuv.io/api/v1/uv?lat=' + lat + '&lng=' + lng + '&alt=' + alt + '&ozone=' + ozone + '&dt=' + dt,
+    success: function(response) {
+      //handle successful response
+    },
+    error: function(response) {
+      // handle error response
+    }
+  });
+  console.log(response)
+ }
+
+// 39.409344
+// -84.0267153
+// https://api.openuv.io/api/v1/uv?lat=-84.0267153&lng=39.409344
